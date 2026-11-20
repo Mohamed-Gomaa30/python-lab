@@ -8,7 +8,7 @@ class Stack:
         self.top = None 
         self.size = 0 
 
-    def __len__(self): # done 
+    def __len__(self): 
         return self.size 
 
     def __iter__(self):
@@ -19,10 +19,15 @@ class Stack:
 
             current = current.next 
 
-    def is_empty(self)->bool: # done 
-        return self.size == 0 
+    def is_empty(self)->bool:
+        return self.top is None 
 
-    # Push 
+    def peak(self): 
+        if self.is_empty(): 
+            return "Stack Is Empty"
+
+        return self.top.value
+    
     def push(self, value):
 
         new_node = Node(value) 
@@ -60,10 +65,14 @@ if __name__ == "__main__":
     stack.push(3)
     stack.push(4)
 
+    print(f"top stack value: {stack.peak()}")
+
     stack.pop()
     stack.pop()
     stack.pop()
     stack.pop()
+
+    stack.peak()
 
     for i in stack: 
         print(i)
