@@ -103,13 +103,15 @@ class LinkedList:
             self.head= temp 
             
         else:
-            
+
             for _ in range(index-1): 
                 prev = prev.next 
 
             removed = prev.next 
             temp = removed.next
             prev.next = temp 
+            
+            del temp
 
         self.size-=1 
 
